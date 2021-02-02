@@ -2,17 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { CommentDatePipe } from './pipes/comment-date.pipe';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './app-routing.module';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommentDatePipe
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    SharedModule,
+    CoreModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

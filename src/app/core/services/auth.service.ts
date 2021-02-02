@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  constructor(private afAuth: AngularFireAuth) {}
+
+  // 正常時はcredential、エラーが発生した場合はcatchされなにも返されないのでvoid
+  login(email: string, password: string): Promise<firebase.auth.UserCredential | void> {
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+      .catch((error) => console.error(error));
+  }
+
+  logout(): Promise<void> {
+    return this.afAuth.signOut();
+  }
+}
